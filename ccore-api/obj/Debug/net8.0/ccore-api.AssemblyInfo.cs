@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ccore-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd52a6936efb6476eea3b298560e5df1a47525fa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfab3e98aa880ea14fa48e678b60bfc4d8a4e433")]
 [assembly: System.Reflection.AssemblyProductAttribute("ccore-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ccore-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
