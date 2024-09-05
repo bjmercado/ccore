@@ -31,6 +31,24 @@ public class AuthorRepository : IAuthor
         return await _context.Authors.FindAsync(id);
     }
 
+    public async Task CreateAsync(Author author)
+    {
+        _context.Add(author);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(Author author)
+    {
+        _context.Update(author);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+       await _context.Authors.Where(author => author.Id == id)
+                        .ExecuteDeleteAsync();
+    }
+
     private IQueryable<Author> FilterAuthor(string? filter)
     {
         if(string.IsNullOrWhiteSpace(filter))
