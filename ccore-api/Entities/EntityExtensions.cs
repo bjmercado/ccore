@@ -14,4 +14,17 @@ public static class EntityExtensions
             author.Books
         );
     }
+    
+    public static BookDto AsDto(this Book book)
+    {
+        return new BookDto(
+            book.Id,
+            book.AuthorId,
+            book.BookName,
+            book.Genre,
+            book.Price,
+            book.ReleaseDate,
+            book.Author
+        );
+    }
 }

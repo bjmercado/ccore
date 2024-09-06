@@ -19,6 +19,7 @@ public class AuthorRepository : IAuthor
         var skipCount = (pageNumber - 1) * pageSize;
         
         return await FilterAuthor(filter)
+                     .Include(author => author.Books)
                      .OrderBy(author => author.LastName)
                      .Skip(skipCount)
                      .Take(pageSize)

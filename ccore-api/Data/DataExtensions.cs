@@ -28,6 +28,7 @@ public static class DataExtensions
     public static IServiceCollection AddScopedServices(this IServiceCollection services)
     {
         services.AddScoped<IAuthor, AuthorRepository>();
+        services.AddScoped<IBook, BookRepository>();
         return services;
     }
 }
