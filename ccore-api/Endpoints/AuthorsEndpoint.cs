@@ -1,3 +1,4 @@
+using ccore_api.Authorization;
 using ccore_api.Entities;
 using ccore_api.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -18,13 +19,17 @@ public static class UsersEndpoint
         group.MapGet("", GetAllAuthors);
 
         group.MapGet("/{id}", GetAuthorById)
+             .RequireAuthorization(Policies.ReadAccess)
              .WithName(GetAuthEndpointName);
 
-        group.MapPost("", CreateAuthor);
+        group.MapPost("", CreateAuthor)
+             .RequireAuthorization(Policies.WriteAcess);
 
-        group.MapPut("/{id}", UpdateAuthor);
+        group.MapPut("/{id}", UpdateAuthor)
+             .RequireAuthorization(Policies.WriteAcess);
 
-        group.MapDelete("/{id}", DeleteAuthor);
+        group.MapDelete("/{id}", DeleteAuthor)
+             .RequireAuthorization(Policies.WriteAcess);
         
         return group;
     }

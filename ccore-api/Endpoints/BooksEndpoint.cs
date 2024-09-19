@@ -1,3 +1,4 @@
+using ccore_api.Authorization;
 using ccore_api.Entities;
 using ccore_api.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -16,13 +17,17 @@ public static class BooksEndpoint
         group.MapGet("", GetAllBooks);
 
         group.MapGet("/{id}", GetBookById)
+             .RequireAuthorization(Policies.ReadAccess)
              .WithName(GetBookEndpointName);
         
-        group.MapPost("", CreateBook);
+        group.MapPost("", CreateBook)
+             .RequireAuthorization(Policies.WriteAcess);
 
-        group.MapPut("/{id}", UpdateBook);
+        group.MapPut("/{id}", UpdateBook)
+             .RequireAuthorization(Policies.WriteAcess);
 
-        group.MapDelete("/{id}", DeleteBook);
+        group.MapDelete("/{id}", DeleteBook)
+             .RequireAuthorization(Policies.WriteAcess);
 
         return group;
     }
