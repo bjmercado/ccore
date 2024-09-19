@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using ccore_api.Authorization;
 using ccore_api.Data;
 using ccore_api.Endpoints;
 using Microsoft.AspNetCore.Http.Json;
@@ -11,6 +12,11 @@ builder.Services.Configure<JsonOptions>(options => {
 });
 
 builder.Services.AddRepositories(builder.Configuration);
+
+builder.Services.AddAuthentication()
+                .AddJwtBearer();
+
+builder.Services.AddAppAuthorization();
 
 var app = builder.Build();
 
